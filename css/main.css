@@ -1,0 +1,15 @@
+:root {
+	--dark: #1b1c1d; --blue: #2185d0; --green: #1ebc30; --red: #db2828; --white: #ffffff; --gray: #babac0; --secondary: #fbfdff;
+}
+* { padding: 0; margin: 0; box-sizing: border-box; }
+body { color: var(--dark); background: var(--secondary); font-family: 'Lato', sans-serif; }
+.main-header { color: var(--white); background: var(--blue); padding: 1.5rem 0; text-align: center; }
+#add-task { width: 70%; margin: 2rem auto; }
+#buttons { width: 70%; margin: 0 auto 3rem auto; }
+#tasks-list { margin: 0 auto; width: 70%; list-style: none; }
+#tasks-list li { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: white; border-bottom: 1px solid #eee;}
+#tasks-list li.completed span { text-decoration: line-through; color: var(--gray); }
+#tasks-list li .actions-btns { opacity: 0; transition: 0.3s; }
+#tasks-list li:hover .actions-btns { opacity: 1; }
+.noty_theme__metroui.noty_bar .noty_body { background: var(--green); color: var(--white); border-radius: 5px; }
+@media screen and (max-width: 770px) { #add-task, #buttons, #tasks-list { width: 100%; } }

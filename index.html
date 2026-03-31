@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>To-Do List App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="preconnect" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/noty@3.1.4/lib/noty.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/noty@3.1.4/lib/themes/metroui.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Lato', sans-serif; background-color: #f4f7f6; padding-top: 50px; }
+        .main-header { margin-bottom: 30px; text-align: center; }
+        #tasks-list { margin-top: 20px; list-style: none; padding: 0; }
+        .task-item { display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 10px 15px; border-bottom: 1px solid #eee; }
+        .task-item.completed span { text-decoration: line-through; color: #888; }
+        #buttons { margin-top: 20px; }
+    </style>
+  </head>
+  <body>
+    <header class="main-header"><div class="ui container"><h1>To-Do List App</h1></div></header>
+    <div class="ui container">
+      <form id="add-task-form" class="ui left icon input fluid">
+        <input id="add-task-input" class="large" type="text" placeholder="Add a task..." required />
+        <i class="tasks icon"></i>
+      </form>
+      <div id="buttons" class="ui stackable grid equal width">
+        <button id="clear-all-btn" class="ui button column" onclick="showModal('#clear-all-tasks-modal')">Clear All</button>
+        <button id="clear-completed-btn" disabled class="ui button column" onclick="showModal('#clear-completed-tasks-modal')">Clear Completed</button>
+      </div>
+      <ul id="tasks-list" class="ui segments"></ul>
+      <!-- Modals for Edit/Delete/Clear -->
+      <div id="edit-modal" class="ui tiny modal">
+        <div class="header">Update Task</div>
+        <div class="content"><div class="ui fluid input"><input id="edit-task-input" type="text" /></div></div>
+        <div class="actions"><div class="ui cancel button">Cancel</div><div id="update-button" class="ui positive button">Update</div></div>
+      </div>
+      <div id="remove-modal" class="ui tiny modal">
+        <div class="header">Delete Task</div>
+        <div class="content"><p>Are you sure?</p></div>
+        <div class="actions"><div class="ui cancel button">No</div><div id="confirm-remove-btn" class="ui positive button">Yes</div></div>
+      </div>
+      <div id="clear-all-tasks-modal" class="ui tiny modal">
+        <div class="header">Clear All</div>
+        <div class="content"><p>Delete all tasks?</p></div>
+        <div class="actions"><div class="ui cancel button">No</div><div onclick="clearAllTasks()" class="ui positive button">Yes</div></div>
+      </div>
+      <div id="clear-completed-tasks-modal" class="ui tiny modal">
+        <div class="header">Clear Completed</div>
+        <div class="content"><p>Delete all completed?</p></div>
+        <div class="actions"><div class="ui cancel button">No</div><div onclick="clearCompletedTasks()" class="ui positive button">Yes</div></div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
